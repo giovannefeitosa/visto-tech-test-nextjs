@@ -12,11 +12,17 @@ export function BasePageHeader({ home }: Props) {
         <header
             className='flex gap-2 px-2 items-center'
         >
-            <IconBrandCitymapper size={isDesktop ? 72 : 48} />
-            <span className='block font-bold text-base md:text-2xl'>Visto.Countries</span>
+            <Link href='/'>
+                <span className='flex gap-2 items-center cursor-pointer'>
+                    <IconBrandCitymapper size={isDesktop ? 72 : 48} />
+                    <span className='block font-bold text-base md:text-2xl'>Visto.Countries</span>
+                </span>
+            </Link>
             <div className='flex-1' />
             {!home && (<Link href='/'>
-                <IconX size={24} color='black' />
+                <span className='cursor-pointer'>
+                    <IconX size={24} color='black' />
+                </span>
             </Link>)}
         </header>
     );
