@@ -7,15 +7,21 @@ import { useEffect, useRef } from "react";
 
 interface Props {
     isLoading: boolean;
+    isDesktop?: boolean;
+    isVisible: boolean;
     message: string;
     history: ChatHistory;
     country: Country;
     onChangeMessage: (message: string) => void;
     onSubmitMessage: () => void;
+    onToggleVisibility: () => void;
 }
 
 export function ChatUI({
     isLoading,
+    isDesktop,
+    isVisible,
+    onToggleVisibility,
     message,
     history,
     country,
@@ -34,9 +40,15 @@ export function ChatUI({
         onChangeMessage(event.target.value.substring(0, 150));
     };
 
+    if (!isDesktop && !isVisible) return <></>;
+
+    const wrapperClassName = isDesktop
+        ? 'flex-1 flex flex-col md:mr-4'
+        : 'flex flex-col fixed bottom-0 left-0 right-0 top-0 bg-white z-10 md:rounded-md md:shadow-md md:border md:overflow-hidden'
+
     return (
         <section
-            className='flex flex-col w-full md:mr-4'
+            className={wrapperClassName}
         >
             <div
                 className='p-2 bg-blue-500 text-white text-xl rounded-t-md flex-none font-bold'

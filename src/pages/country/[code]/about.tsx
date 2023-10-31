@@ -41,7 +41,7 @@ function AboutCountryPageInner({ countryCode }: AboutCountryPageInnerProps) {
         content = (
             <ChatProvider country={country}>
                 <section
-                    className='bg-slate-100 p-2 md:rounded-md max-w-md w-full flex-none md:ml-4 md:shadow-md md:border'
+                    className='bg-slate-100 p-2 md:rounded-md w-full flex-none md:ml-4 md:shadow-md md:border'
                 >
                     <h1
                         className='pb-2 font-bold text-xl text-center'
