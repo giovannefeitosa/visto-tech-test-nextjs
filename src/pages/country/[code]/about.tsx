@@ -6,7 +6,6 @@ import { ChatProvider } from "@/components/openai/ChatProvider";
 import { useApiGet } from "@/hooks/useApiGet";
 import { Country } from "@/types/countries.types";
 import { LoadingOverlay } from "@mantine/core";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function AboutCountryPage() {

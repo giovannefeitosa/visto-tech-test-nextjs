@@ -10,8 +10,11 @@ export function openaiCreateCountryPrompt(countryName: string, message: string, 
         `Be concise in your answers, answer any question about ${countryName}.`,
         '\n\n',
         '# HISTORY OF MESSAGES:\n\n',
-        history.length ? history.map(msg => `From: ${msg.from}\nMessage: ${msg.text}\n\n`) : 'empty history\n\n',
+        history && history.length ? history.map(msg => `From: ${msg.from}\nMessage: ${msg.text}\n\n`) : 'empty history\n\n',
         `# MESSAGE ABOUT ${countryName}\n\n`,
         message,
+        '\n\n',
+        '### ANSWER:\n\n',
+        `From: ai\nMessage:`
     ].join(' ');
 }
