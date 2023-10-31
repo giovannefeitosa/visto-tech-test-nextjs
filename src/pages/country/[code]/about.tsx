@@ -44,6 +44,9 @@ function AboutCountryPageInner({ countryCode }: AboutCountryPageInnerProps) {
                 <section
                     className='bg-slate-100 p-2 md:rounded-md md:ml-4 md:shadow-md md:border'
                 >
+                    <Head>
+                        <title>Visto.Countries | {country.officialName} | About</title>
+                    </Head>
                     <h1
                         className='pb-2 font-bold text-xl text-center'
                     >{country.officialName}</h1>

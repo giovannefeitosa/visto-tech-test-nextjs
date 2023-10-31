@@ -59,7 +59,7 @@ export default function HomePage() {
   return (
     <BasePage home>
       <Head>
-        <title>Visto.Countries</title>
+        <title>Visto.Countries | Home</title>
         <meta name="description" content="This is a simple project to display a list of countries and know more about them" />
         <meta property="og:title" content="Visto.Countries" />
         <meta property="og:description" content="This is a simple project to display a list of countries and know more about them" />
