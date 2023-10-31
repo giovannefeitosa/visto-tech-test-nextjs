@@ -1,7 +1,12 @@
 import { useMediaQuery } from "@mantine/hooks";
-import { IconBrandCitymapper } from "@tabler/icons-react";
+import { IconBrandCitymapper, IconX } from "@tabler/icons-react";
+import Link from "next/link";
 
-export function BasePageHeader() {
+interface Props {
+    home?: boolean;
+}
+
+export function BasePageHeader({ home }: Props) {
     const isDesktop = useMediaQuery('(min-width: 48em)');
     return (
         <header
@@ -9,6 +14,10 @@ export function BasePageHeader() {
         >
             <IconBrandCitymapper size={isDesktop ? 72 : 48} />
             <span className='block font-bold text-base md:text-2xl'>Visto.Countries</span>
+            <div className='flex-1' />
+            {!home && (<Link href='/'>
+                <IconX size={24} color='black' />
+            </Link>)}
         </header>
     );
 }

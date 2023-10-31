@@ -40,7 +40,7 @@ export default function HomePage() {
   }
 
   return (
-    <BasePage>
+    <BasePage home>
       {content}
     </BasePage>
   );

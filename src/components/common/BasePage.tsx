@@ -1,13 +1,14 @@
 import { BasePageHeader } from "./BasePageHeader";
 
 interface Props {
+    home?: boolean;
     children: JSX.Element | JSX.Element[];
 }
 
-export function BasePage({ children }: Props) {
+export function BasePage({ home, children }: Props) {
     return (
         <div>
-            <BasePageHeader />
+            <BasePageHeader home={home} />
             <main>
                 {children}
             </main>
