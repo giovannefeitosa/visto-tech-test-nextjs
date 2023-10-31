@@ -1,3 +1,4 @@
+import { BasePage } from "@/components/common/BasePage";
 import { ErrorMessage } from "@/components/common/ErrorMessage";
 import { CountryListItem } from "@/components/countries/CountryListItem";
 import { SearchInput } from "@/components/form/SearchInput";
@@ -13,25 +14,30 @@ export default function HomePage() {
     isLoading,
   } = useApiGet<Country[]>('/countries');
 
-  if (isLoading) {
-    return <LoadingOverlay visible />
-  }
+  let content;
 
-  if (errorMessage) {
-    return <ErrorMessage message={errorMessage || 'deleteme'} />
+  if (isLoading) {
+    content = <LoadingOverlay visible />
+  } else if (errorMessage) {
+    content = <ErrorMessage message={errorMessage || 'deleteme'} />
+  } else {
+    content = (
+      <>
+        <SearchInput
+          placeholder='Search countries...'
+        />
+        <section
+          className="flex flex-col gap-1 pt-4"
+        >
+        {data!.map((country: Country) => <CountryListItem country={country} key={country.code} />)};
+        </section>
+      </>
+    )
   }
 
   return (
-    <div>
-      <SearchInput
-        placeholder='Search countries...'
-      />
-      <section
-        className="flex flex-col gap-1 pt-4"
-      >
-      {data!.map((country: Country) => <CountryListItem country={country} key={country.code} />)};
-      </section>
-    </div>
-  )
- 
+    <BasePage>
+      {content}
+    </BasePage>
+  );
 }
