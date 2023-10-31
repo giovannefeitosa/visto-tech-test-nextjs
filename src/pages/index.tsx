@@ -23,11 +23,15 @@ export default function HomePage() {
   } else {
     content = (
       <>
-        <SearchInput
-          placeholder='Search countries...'
-        />
+        <div
+          className='p-2'
+        >
+          <SearchInput
+            placeholder='Search countries...'
+          />
+        </div>
         <section
-          className="flex flex-col gap-1 pt-4"
+          className="flex flex-col gap-1 pt-4 md:flex-none md:grid md:grid-cols-3 md:gap-0"
         >
         {data!.map((country: Country) => <CountryListItem country={country} key={country.code} />)};
         </section>
