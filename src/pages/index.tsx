@@ -6,6 +6,7 @@ import { useApiGet } from "@/hooks/useApiGet";
 import { Country } from "@/types/countries.types";
 import { Input, LoadingOverlay } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
+import Head from "next/head";
 import React, { useState } from "react";
 
 export default function HomePage() {
@@ -57,6 +58,12 @@ export default function HomePage() {
 
   return (
     <BasePage home>
+      <Head>
+        <title>Visto.Countries</title>
+        <meta name="description" content="This is a simple project to display a list of countries and know more about them" />
+        <meta property="og:title" content="Visto.Countries" />
+        <meta property="og:description" content="This is a simple project to display a list of countries and know more about them" />
+      </Head>
       {content}
     </BasePage>
   );
