@@ -5,6 +5,8 @@ export function parseRCCountry(rawCountry: RCCountry): Country {
     return {
         code: rawCountry.cca2,
         officialName: rawCountry.name.official,
+        flagImgUrl: getFlagUrl(rawCountry),
+        flagImgAlt: rawCountry.flags?.alt,
         nativeName: getNativeName(rawCountry),
         currencies: getCurrencies(rawCountry),
         capital: rawCountry.capital,
@@ -30,4 +32,8 @@ function getNativeName(country: RCCountry): string {
 function getCurrencies(country: RCCountry): string[] {
     const keys: string[] = Object.keys(country.currencies);
     return keys.map(key => `${key} (${country.currencies[key].symbol})`)
+}
+
+function getFlagUrl(country: RCCountry): string {
+    return country.flags?.svg || country.flags?.png || '';
 }

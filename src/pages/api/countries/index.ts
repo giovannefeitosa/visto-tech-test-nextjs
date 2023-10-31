@@ -8,7 +8,7 @@ export default async function handler(
     request: NextApiRequest,
     response: NextApiResponse<Country[]>,
 ) {
-    const fields = ['cca2','name','currencies','capital','region','subregion','borders','population','latlng','maps'];
+    const fields = ['cca2','name','currencies','capital','region','subregion','borders','population','latlng','maps','flags'];
     const url = `${restCountriesConfig.baseUrl}/all?fields=${fields.join(',')}`;
     const res = await fetch(url, {
         headers: {

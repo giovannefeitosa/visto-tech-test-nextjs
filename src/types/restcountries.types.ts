@@ -9,6 +9,11 @@ export interface RCCountry {
             };
         };
     };
+    flags: {
+        png: string;
+        svg: string;
+        alt: string;
+    };
     cca2: string;
     currencies: {
         [key: string]: {
