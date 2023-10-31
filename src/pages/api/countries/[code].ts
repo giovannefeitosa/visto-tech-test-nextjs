@@ -9,7 +9,7 @@ export default async function handler(
     response: NextApiResponse<Country>,
 ) {
     const cca2 = request.query.code;
-    const fields = ['cca2','name','currencies','capital','region','subregion','borders','population','latlng','maps'];
+    const fields = ['cca2','name','currencies','capital','region','subregion','borders','population','latlng','maps','flags'];
     const url = `${restCountriesConfig.baseUrl}/alpha/${cca2}?fields=${fields.join(',')}`;
     const res = await fetch(url, {
         headers: {

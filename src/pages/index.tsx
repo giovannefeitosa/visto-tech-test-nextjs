@@ -11,7 +11,7 @@ export default function HomePage() {
     data,
     errorMessage,
     isLoading,
-} = useApiGet<Country[]>('/countries');
+  } = useApiGet<Country[]>('/countries');
 
   if (isLoading) {
     return <LoadingOverlay visible />

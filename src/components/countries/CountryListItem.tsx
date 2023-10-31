@@ -1,5 +1,6 @@
 import { Country } from "@/types/countries.types";
 import Image from "next/image";
+import { CountryFlag } from "./CountryFlag";
 
 interface Props {
     country: Country;
@@ -13,12 +14,7 @@ export function CountryListItem({ country }: Props) {
             <span
                 className='w-8 flex-none'
             >
-                <Image
-                    src={country.flagImgUrl}
-                    alt={country.flagImgAlt}
-                    width={1060}
-                    height={742}
-                />
+                <CountryFlag country={country} />
             </span>
             <span
                 className='text-sm'
